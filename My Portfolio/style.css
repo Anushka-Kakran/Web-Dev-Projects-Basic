@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    position: absolute;
+    background-color: rgb(155, 152, 152);
+    /* width: 434px; */
+    font-family: "Fira Sans", sans-serif;
+    height: 100vh;
+    transition: transform 0.3s ease-in ;
+}
+
+.sidebar nav {
+    padding: 45px;
+}
+
+.sidebar nav li {
+    list-style: none;
+    font-size: 30px;
+    padding: 33px 0;
+}
+
+.sidebar nav li a {
+    text-decoration: none;
+    color: black;
+}
+
+.main {
+    /* background-color: yellow; */
+    width: 90vw;
+}
+
+.container {
+    display: flex;
+}
+
+.infocontainer {
+    /* background-color: blueviolet; */
+    height: 58vh;
+    width: 80vw;
+    margin: 154px auto;
+    margin-left: 200px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.devInfo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Source Code Pro", monospace;
+}
+
+.hello{
+    font-size: 65px;
+
+}
+.name{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Fira Sans", sans-serif;
+
+}
+.about{
+    font-size: 40px;
+
+}
+.moreabout{
+    font-size: 22px;
+    margin-top: 24px ;
+    font-family: "Fira Sans", sans-serif;
+
+}
+.buttons{
+    margin-top: 40px;
+
+
+
+}
+.btn button {
+    padding: 8px 11px;
+    border-radius: 22px;
+    color: white;
+    background-color: dodgerblue;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 20px 3px;
+    cursor: pointer;
+}
+
+.btn button:hover {
+    background-color: white;
+    color: dodgerblue;
+}
+
+
+.devpic img{
+    height: 58vh;
+    
+}
+.sidebarGo{
+    transform: translate(-443px, 0px) ;
+    position: absolute;
+ }
+ 
+.hamburger{
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    left: 10px;
+    
+}
+.meenu{
+    margin-top: 9px;
+    margin-left: 10px ;
+
+}    
+
+
+.cross{
+    margin-top: 9px;
+    margin-left: 185px;
+}
+
+
+@media (max-width: 1000px) {
+
+    .divPic{
+        display: none;
+    }
+  
+}
