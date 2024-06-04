@@ -50,6 +50,7 @@ textarea::placeholder{
     display: flex;
     align-items: center;
     gap: 20px;
+   
 }
 button{
     background: #ff2963;
@@ -74,9 +75,10 @@ select{
     color: #fff;
     background: #403d84;
     height: 50px;
-    padding: 0 20px;
+    padding: 0 30px;
     outline: 0;
     border: 0;
+    padding-right: 20px;
     border-radius: 35px;
     appearance: none;
     background-image: url(text_to_speech_img/images/dropdown.png);
