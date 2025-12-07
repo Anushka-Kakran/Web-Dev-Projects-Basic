@@ -1,0 +1,364 @@
+:root {
+    --form-bg-color-start: #f8c9d1;    
+    --form-bg-color-end: #f5e4b7;      
+    --table-bg-color-start: #a3ccff; 
+    --table-bg-color-end: #b7e4b7;     
+    --text-color: #000;
+    --input-bg-color: #fff;
+    --table-header-color: #333;
+    --button-edit-color: #8A2BE2; /* Bluish Purple */
+    --button-delete-color: #C71585; /* Deep Pink */
+    --border-color: #333; /* Dark border color for strong lines */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* ============================================== */
+/* Custom Background and Layout (Fixed Split) */
+/* ============================================== */
+
+.main-layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -2; 
+    overflow: hidden;
+}
+
+.form-background {
+    flex: 1; 
+    background: radial-gradient(circle at right, var(--form-bg-color-end) 0%, var(--form-bg-color-start) 70%);
+}
+
+.table-background {
+    flex: 1; 
+    background: radial-gradient(circle at left, var(--table-bg-color-start) 0%, var(--table-bg-color-end) 70%);
+}
+
+/* Header Styling */
+.main-header {
+    text-align: center;
+    padding: 1.5rem 0 0.5rem;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.system-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4); 
+}
+
+/* Main Content Container */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px; 
+    height: 90vh; 
+    margin: 0 auto;
+    padding: 0; 
+    position: relative;
+    z-index: 5;
+    align-items: stretch;
+}
+
+/* ============================================== */
+/* Form Section (Left Side) */
+/* ============================================== */
+.registration-form-section {
+    flex: 1 1 50%; 
+    padding: 2rem 1rem; 
+    display: flex;
+    flex-direction: column;
+}
+
+.student-form {
+    margin: 3rem auto 0;
+    max-width: 350px; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+/* Input Group Styles */
+.input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-group label {
+    margin-right: 1rem;
+    width: 120px; 
+    text-align: left;
+    white-space: nowrap;
+}
+
+.input-group input {
+    flex-grow: 1;
+    max-width: 200px;
+    padding: 0.4rem;
+    border: 1px solid #777;
+    border-radius: 0;
+    background-color: var(--input-bg-color);
+    font-size: 1rem;
+}
+
+.error-message {
+    color: var(--button-delete-color);
+    font-size: 0.85rem;
+    display: block; 
+    min-height: 1.1rem;
+    position: absolute; 
+    bottom: -1.5rem;
+    left: 120px; 
+}
+
+/* Button Styling (including Register/Submit) */
+.btn {
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--border-color); /* Use dark border for all buttons */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem; 
+    font-weight: bold; /* Made text bold for prominence */
+    transition: background-color 0.3s, transform 0.1s; /* Add transform for tactile feel */
+    color: white;
+    text-transform: uppercase;
+}
+
+.submit-btn {
+    background-color: #6c757d; 
+    width: 200px; 
+    margin: 2rem 0 0 120px; 
+}
+
+/* FIX: Register Button Hoverable */
+.submit-btn:hover {
+    background-color: #5a6268; /* Slightly darker on hover */
+    transform: translateY(-1px); /* Slight lift on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ============================================== */
+/* Display Table Section (Right Side) */
+/* ============================================== */
+.display-records-section {
+    flex: 1 1 50%; 
+    padding: 2rem 1rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-top: 3rem; 
+}
+
+.records-container {
+    max-height: 80vh; 
+    overflow-y: hidden;
+    width: 100%; 
+    max-width: 500px; 
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; 
+}
+
+/* FIX: Ensure column lines are prominent */
+.student-table th, .student-table td {
+    padding: 0.7rem;
+    border-right: 1px solid var(--border-color); /* Strong vertical column lines */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Light horizontal row separators */
+    white-space: nowrap; 
+}
+
+.student-table thead {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.student-table th {
+    color: var(--table-header-color);
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid var(--border-color); /* Strong header bottom line */
+}
+
+/* Ensure the last column doesn't have a right border */
+.student-table th:last-child, .student-table td:last-child {
+    border-right: none;
+}
+
+.action-col {
+    width: 1%; 
+    white-space: nowrap;
+}
+
+.edit-btn {
+    background-color: #6A1B9A; 
+}
+
+.edit-btn:hover{
+    background-color: #4A148C; /* Darker purple on hover */
+}
+
+.delete-btn{
+    background-color: #AD1457; 
+}
+
+.delete-btn:hover {
+    background-color: #880E4F; 
+}
+
+/* ============================================== */
+/* Task 5: Responsiveness (Tablet and Mobile) */
+/* ============================================== */
+
+@media (max-width: 1024px) {
+    /* Tablet/General small screen layout adjustments */
+    .container {
+        flex-direction: column;
+        height: auto; 
+        padding: 1rem;
+        align-items: center;
+    }
+
+    .main-layout {
+        flex-direction: column;
+        height: 100%;
+        position: absolute; 
+    }
+    
+    .form-background {
+        flex: 1 1 50vh; 
+        background: radial-gradient(circle at bottom, var(--form-bg-color-end) 0%, var(--form-bg-color-start) 70%);
+    }
+
+    .table-background {
+        flex: 1 1 auto; 
+        background: radial-gradient(circle at top, var(--table-bg-color-start) 0%, var(--table-bg-color-end) 70%);
+    }
+
+    .registration-form-section, .display-records-section {
+        flex: 1 1 100%; 
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .student-form {
+        margin: 1rem auto;
+        max-width: 90%;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .input-group label {
+        width: 100%;
+        margin-bottom: 0.3rem;
+    }
+
+    .input-group input {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .error-message {
+        left: 0; 
+        bottom: -1rem;
+    }
+
+    .submit-btn {
+        margin: 0 auto; 
+        width: 100%;
+    }
+
+    .records-container {
+        max-width: 100%;
+    }
+    
+    /* Mobile View (Task 5: <= 640px) - Stacked/Card Format */
+    @media (max-width: 640px) {
+        
+      
+        .student-table thead {
+            display: none;
+        }
+
+        .student-table tr {
+            display: block;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+        }
+
+        .student-table td {
+            display: block;
+            text-align: right !important; /* Align data to the right */
+            border-right: none;
+            border-bottom: none;
+            padding: 0.5rem 0.7rem;
+            position: relative;
+            white-space: normal; /* Allow the content to wrap */
+        }
+        
+        .student-table td:before {
+            
+            content: attr(data-label); 
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding-right: 10px;
+            text-align: left;
+        }
+        
+    
+        .student-table th:nth-child(3), 
+        .student-table td:nth-child(3),
+        .student-table th:nth-child(4), 
+        .student-table td:nth-child(4) {
+            display: block;
+        }
+        
+        /* 6. Center the action buttons and add a separator */
+        .student-table td:last-child {
+            text-align: center !important;
+            padding-top: 1rem;
+            padding-bottom: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+    }
+}

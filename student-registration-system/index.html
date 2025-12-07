@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Registration System using HTML, CSS, and JavaScript DOM Manipulation with Local Storage.">
+    <title>Student Registration System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="main-layout">
+        <div class="form-background"></div>
+        <div class="table-background"></div>
+    </div>
+
+    <header class="main-header">
+        <h1 class="system-title">🎓 Student Registration System</h1>
+        <p class="system-description">
+            Register, view, edit, and manage student information using local storage persistence.
+        </p>
+    </header>
+
+    <main class="container">
+        
+        <section class="registration-form-section">
+            <form id="student-form" class="student-form">
+                
+                <div class="input-group">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" placeholder="e.g., John Doe" required>
+                    <span class="error-message" id="name-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="studentID">Student ID:</label>
+                    <input type="text" id="studentID" placeholder="e.g., 8923728" required>
+                    <span class="error-message" id="id-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="emailID">Email ID:</label>
+                    <input type="email" id="emailID" placeholder="e.g., john@example.com" required>
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="contactNo">Contact Number:</label>
+                    <input type="tel" id="contactNo" placeholder="e.g., 9876543210" required>
+                    <span class="error-message" id="contact-error"></span>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn submit-btn">Register Student</button>
+            </form>
+        </section>
+        
+        <section class="display-records-section">
+            
+            <div class="records-container">
+                <table id="student-table" class="student-table">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Student ID</th>
+                            <th>Email ID</th>
+                            <th>Contact No.</th>
+                            <th class="action-col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-list">
+                        </tbody>
+                </table>
+            </div>
+            
+            <p id="no-records-message" class="no-records-message" style="display: none;">No student records available. Start registering!</p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
